@@ -9,9 +9,23 @@ function Form() {
     },
     onSubmit: (values) => {
       console.log(values);
-    }
-  });
+    },
+    validate: (values) => {
+      let errors = {};
 
+      if (!values.name) {
+        errors.name = "Required";
+      }
+      if (!values.email) {
+        errors.email = "Required";
+      }
+      if (!values.password) {
+        errors.password = "Required";
+      }
+
+      return errors;
+    },
+  });
 
   return (
     <div className="container">
